@@ -77,7 +77,7 @@ public class PostServiceImpl implements PostService {
 	public List<PostDto> getAllPosts() {
 		// TODO Auto-generated method stub\
 		int pageSize = 5;
-		int pageNumber =1;
+		int pageNumber =2;
 		Pageable p = PageRequest.of(pageNumber, pageSize);
 		Page<Post> posts = this.postRepo.findAll(p);
 		List<PostDto> postdtos = posts.stream().map(post-> this.modelMapper.map(post,PostDto.class)).collect(Collectors.toList());
