@@ -15,7 +15,8 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name= "category")
 @NoArgsConstructor
@@ -32,6 +33,7 @@ public class Category {
 	private String categoryDescription;
 	
 	@OneToMany(mappedBy = "category",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JsonIgnore
 	private List<Post> posts = new ArrayList<>();
 	
 	
